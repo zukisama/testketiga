@@ -6,12 +6,20 @@ use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Tests\TestCase;
 
-class EnvironmentTest extends TestCase
+class environmentTest extends TestCase
 {
-    public function testGetEnv()
-    {
-        $youtube = env('YOUTUBE');
+   public function testGetEnv()
+   {
+       $youtube = env('YOUTUBE');
 
-        self::assertEquals('Programmer Zaman Now', $youtube);
-    }
+       self::assertEquals('Programmer Zaman Now', $youtube);
+   }
+
+   public function testDefaultEnv()
+   {
+       $author = env('AUTHOR', 'Eko');
+
+       self::assertEquals('Eko', $author);
+   }
+
 }
